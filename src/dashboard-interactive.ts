@@ -215,7 +215,7 @@ export function interactiveDashboardView(): UIElement {
     // Footer
     box({ flexDirection: 'row', justifyContent: 'center', paddingTop: 8 }, [
       text({
-        text: 'Powered by Geometra — DOM-free rendering for the AI Agent era',
+        text: 'Powered by Geometra — the singularity frontend framework',
         font: theme.fontSm, lineHeight: 16, color: theme.muted,
       }),
     ]),

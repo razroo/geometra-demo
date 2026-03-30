@@ -1,8 +1,8 @@
-# Geometra Demo — AI Agent Dashboard
+# Geometra Demo — The Singularity Frontend Framework
 
-A real-time AI Agent monitoring dashboard built with [Geometra](https://github.com/razroo/geometra), a DOM-free frontend framework for the AI Agent era.
+The client is the server. The server is the client. [Geometra](https://github.com/razroo/geometra) is the singularity frontend framework — where the boundary between client and server dissolves, and human and AI interaction is native to both sides.
 
-This demo proves Geometra works in production by rendering the **same reactive UI** across three completely different targets — and letting AI agents interact with it directly via structured geometry, no browser required.
+This demo proves it: the **same reactive UI** renders across four completely different targets. AI agents don't scrape the UI — they *are* the UI. Humans and agents share one unified compute surface, and agents move 1000x faster because there's no browser standing in their way.
 
 | Mode | Command | What it does |
 |------|---------|--------------|
@@ -12,9 +12,16 @@ This demo proves Geometra works in production by rendering the **same reactive U
 | **Agent API** | `npm run agent-server` | REST API exposing raw geometry + actions for AI agents |
 | **Agent Demo** | `npm run dev` → agent-demo.html | Live visualization of an AI agent consuming geometry and taking actions |
 
-## Agent Interaction — the key demo
+## The Singularity in Action
 
-The Agent API (`npm run agent-server`) exposes the dashboard's UI as structured JSON that any AI agent can consume directly:
+Traditional frontend frameworks assume one client, one server, one human. Geometra assumes none of that.
+
+- **The client is the server.** Layout, state, and rendering can run anywhere — browser, terminal, server, or all at once. Multiple client/servers collapse into a single runtime.
+- **The server is the client.** An agent on the server consumes the same geometry a human sees in the browser. No headless browser. No screenshots. No OCR. Just structured `{ x, y, width, height }` geometry and a list of available actions.
+- **Human and AI, native to both.** The same UI surface serves humans clicking buttons and agents invoking actions via JSON. Neither is an afterthought.
+- **1000x agent velocity.** Agents skip the entire browser stack — no DOM, no rendering pipeline, no vision model. They read structured geometry directly and act in milliseconds.
+
+The Agent API (`npm run agent-server`) exposes the dashboard as structured JSON:
 
 ```bash
 # Get full UI state as geometry + actions
@@ -28,8 +35,6 @@ curl -X POST http://localhost:3101/api/action \
   -H 'Content-Type: application/json' \
   -d '{"id": "action-T-1028-retry"}'
 ```
-
-**Why this matters:** Traditional apps require a headless browser + vision model for an agent to "see" the UI. With Geometra, agents get structured `{ x, y, width, height }` geometry and a list of available actions — no browser, no screenshots, no OCR.
 
 The [Agent Demo page](agent-demo.html) visualizes this in real-time: a split-screen showing the dashboard rendering on the left, and a simulated agent's Read → Think → Act → Observe loop on the right.
 

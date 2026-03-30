@@ -1,7 +1,7 @@
 {
   "name": "geometra-demo",
   "version": "1.0.0",
-  "description": "AI Agent Dashboard — a Geometra demo showcasing Canvas, Terminal, and Server/Client rendering modes",
+  "description": "The Singularity Frontend Framework — the client is the server, the server is the client. Human and AI interaction native to both.",
   "type": "module",
   "scripts": {
     "dev": "vite",
