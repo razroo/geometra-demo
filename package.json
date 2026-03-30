@@ -9,6 +9,7 @@
     "build": "vite build",
     "terminal": "tsx src/terminal.ts",
     "server": "tsx src/server.ts",
+    "agent-server": "tsx src/agent-server.ts",
     "preview": "vite preview"
   },
   "dependencies": {

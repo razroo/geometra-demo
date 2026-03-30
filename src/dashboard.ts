@@ -10,7 +10,7 @@ import { signal, batch, box, text } from '@geometra/core';
 import type { UIElement, Signal } from '@geometra/core';
 
 // ── Theme ────────────────────────────────────────────────────────────
-const theme = {
+export const theme = {
   bg:        '#0f172a',
   surface:   '#1e293b',
   card:      '#334155',
@@ -27,9 +27,9 @@ const theme = {
 };
 
 // ── Domain types ─────────────────────────────────────────────────────
-type AgentStatus = 'idle' | 'running' | 'success' | 'error';
+export type AgentStatus = 'idle' | 'running' | 'success' | 'error';
 
-interface AgentTask {
+export interface AgentTask {
   id: string;
   description: string;
   status: AgentStatus;
@@ -37,7 +37,7 @@ interface AgentTask {
   model: string;
 }
 
-interface AgentInfo {
+export interface AgentInfo {
   name: string;
   status: AgentStatus;
   tasksCompleted: number;
@@ -46,14 +46,14 @@ interface AgentInfo {
 }
 
 // ── Reactive state ───────────────────────────────────────────────────
-const agents: Signal<AgentInfo[]> = signal<AgentInfo[]>([
+export const agents: Signal<AgentInfo[]> = signal<AgentInfo[]>([
   { name: 'Code Review Agent',    status: 'running', tasksCompleted: 47, currentTask: 'PR #312 — auth middleware',  uptime: '4h 23m' },
   { name: 'Test Gen Agent',       status: 'running', tasksCompleted: 31, currentTask: 'Generate e2e for /api/v2',  uptime: '2h 11m' },
   { name: 'Deploy Agent',         status: 'idle',    tasksCompleted: 12, currentTask: '—',                         uptime: '6h 05m' },
   { name: 'Monitoring Agent',     status: 'success', tasksCompleted: 89, currentTask: 'Dashboard health check',    uptime: '12h 30m' },
 ]);
 
-const taskQueue: Signal<AgentTask[]> = signal<AgentTask[]>([
+export const taskQueue: Signal<AgentTask[]> = signal<AgentTask[]>([
   { id: 'T-1024', description: 'Refactor payment module',       status: 'running', duration: '3m 12s', model: 'Claude Opus 4' },
   { id: 'T-1025', description: 'Fix CORS headers on /api/auth', status: 'success', duration: '1m 44s', model: 'Claude Sonnet 4' },
   { id: 'T-1026', description: 'Add rate limiting middleware',   status: 'running', duration: '2m 08s', model: 'Claude Opus 4' },
@@ -62,7 +62,7 @@ const taskQueue: Signal<AgentTask[]> = signal<AgentTask[]>([
   { id: 'T-1029', description: 'Write integration tests',       status: 'idle',    duration: '—',      model: 'Claude Sonnet 4' },
 ]);
 
-const metrics = signal({
+export const metrics = signal({
   totalTasks:   179,
   successRate:  94.2,
   avgDuration:  '2m 18s',
@@ -110,14 +110,14 @@ export function startSimulation(): () => void {
 }
 
 // ── UI Helpers ───────────────────────────────────────────────────────
-function statusColor(s: AgentStatus): string {
+export function statusColor(s: AgentStatus): string {
   return s === 'running' ? theme.accent
        : s === 'success' ? theme.success
        : s === 'error'   ? theme.error
        : theme.muted;
 }
 
-function statusLabel(s: AgentStatus): string {
+export function statusLabel(s: AgentStatus): string {
   return s === 'running' ? 'RUNNING'
        : s === 'success' ? 'DONE'
        : s === 'error'   ? 'ERROR'
