@@ -1,0 +1,27 @@
+{
+  "name": "geometra-demo",
+  "version": "1.0.0",
+  "description": "AI Agent Dashboard — a Geometra demo showcasing Canvas, Terminal, and Server/Client rendering modes",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "dev:client": "vite --config vite.client.config.ts",
+    "build": "vite build",
+    "terminal": "tsx src/terminal.ts",
+    "server": "tsx src/server.ts",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@geometra/client": "^0.1.0",
+    "@geometra/core": "^0.1.0",
+    "@geometra/renderer-canvas": "^0.1.0",
+    "@geometra/renderer-terminal": "^0.1.0",
+    "@geometra/server": "^0.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^25.5.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0",
+    "vite": "^6.0.0"
+  }
+}
